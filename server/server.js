@@ -11,7 +11,7 @@ const  PORT=process.env.PORT
 connectDB()
 //middlewares config
 app.use(cors())
-app.use(express.json({urlencoded:false}))
+app.use(express.json({urlencoded:true}))
 app.use(express.json())
 //routes config
 // app.use('/products',productsRoute)

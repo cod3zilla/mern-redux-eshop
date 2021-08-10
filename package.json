@@ -4,8 +4,8 @@
   "description": "a Mern stack app.",
   "main": "server.js",
   "engines": {
-    "node": "12.11.1",
-    "npm":  "6.14.8"
+    "node": "14.16.1",
+    "yarn":  "1.22.11"
     },
   "scripts": {
     "start": "node server/server.js",
@@ -14,7 +14,7 @@
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "data:import": "node server/seeder.js",
     "data:destroy": "node server/seeder.js -destroy",
-    "heroku-postbuild": "cd client && yarn install && yarn run build"
+    "heroku-postbuild": "cd client && yarn install && yarn build"
   },
   "repository": "https://github.com/cod3zilla/mern-redux-eshop.git",
   "author": "cod3zilla <paranoid.grunge@gmail.com>",
