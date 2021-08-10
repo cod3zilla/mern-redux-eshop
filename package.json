@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "a Mern stack app.",
   "main": "server.js",
-  "engines": {
-    "node": "14.16.1",
-    "yarn":  "1.22.11"
-    },
+  
   "scripts": {
     "start": "node server/server.js",
     "server": "nodemon server/server",
@@ -14,7 +11,6 @@
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "data:import": "node server/seeder.js",
     "data:destroy": "node server/seeder.js -destroy"
-    
   },
   "repository": "https://github.com/cod3zilla/mern-redux-eshop.git",
   "author": "cod3zilla <paranoid.grunge@gmail.com>",
@@ -22,7 +18,6 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.2.1",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.6"
