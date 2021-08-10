@@ -1,14 +1,14 @@
 const express=require('express')
 const cors=require('cors')
 if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
-const connectDB=require('./config/dbconfig')
-const productsRoute=require('./router/productRoute')
-const authRoute=require('./router/authRoute')
-const orderRoute=require('./router/orderRoute')
+// const connectDB=require('./config/dbconfig')
+// const productsRoute=require('./router/productRoute')
+// const authRoute=require('./router/authRoute')
+// const orderRoute=require('./router/orderRoute')
 
 const app=express()
 
-connectDB()
+// connectDB()
 //middlewares config
 app.use(cors())
 app.use(express.json({urlencoded:true}))
@@ -35,6 +35,6 @@ if(process.env.NODE_ENV === 'production'){
      res.send('API is running');
    });
  }
-const PORT=process.env.PORT
+const PORT=process.env.PORT||5000
 app.listen(process.env.PORT||5000,()=>console.log(`server is up on:${PORT}`))
 
