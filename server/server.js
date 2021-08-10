@@ -7,7 +7,7 @@ const authRoute=require('./router/authRoute')
 const orderRoute=require('./router/orderRoute')
 
 const app=express()
-const  PORT=process.env.PORT
+
 connectDB()
 //middlewares config
 app.use(cors())
@@ -35,6 +35,6 @@ if(process.env.NODE_ENV === 'production'){
      res.send('API is running');
    });
  }
-
+const PORT=process.env.PORT
 app.listen(process.env.PORT||5000,()=>console.log(`server is up on:${PORT}`))
 
