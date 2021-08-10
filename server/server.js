@@ -7,7 +7,7 @@ const authRoute=require('./router/authRoute')
 const orderRoute=require('./router/orderRoute')
 
 const app=express()
-const  PORT=process.env.PORT||5000
+const  PORT=process.env.PORT
 connectDB()
 //middlewares config
 app.use(cors())
