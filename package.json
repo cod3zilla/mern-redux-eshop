@@ -4,7 +4,8 @@
   "description": "a Mern stack app.",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js"
   },
   "repository": "https://github.com/cod3zilla/mern-redux-eshop.git",
   "author": "cod3zilla <paranoid.grunge@gmail.com>",

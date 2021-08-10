@@ -1,10 +1,8 @@
 const express=require('express')
-const dotenv=require('dotenv')
+const path=require('path')
 
 const app=express()
-if(process.env.NODE_ENV !== 'production'){
-  dotenv.config()
-}
+if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
 
 app.get('/', (req, res)=>{
