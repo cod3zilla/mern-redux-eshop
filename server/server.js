@@ -13,7 +13,7 @@ connectDB()
 app.use(cors())
 app.use(express.json({urlencoded:true}))
 app.use(express.json())
-routes config
+//routes config
 app.use('/products',productsRoute)
 app.use('/users',authRoute)
 app.use('/order', orderRoute)
