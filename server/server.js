@@ -1,11 +1,13 @@
 const express=require('express')
 const path=require('path')
+const cors=require('cors')
 const connectDB=require('./config/dbconfig')
 const productsRoute=require('./router/productRoute')
 const authRoute=require('./router/authRoute')
 const orderRoute=require('./router/orderRoute')
 
 const app=express()
+app.use(cors())
 if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 connectDB()
 app.use(express.json({urlencoded:true}))
