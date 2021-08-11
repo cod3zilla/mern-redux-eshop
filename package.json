@@ -5,9 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
-    "server": "nodemon server/server.js",
-    "build": "webpack --mode production",
-    "heroku-postbuild": "cd client && yarn && yarn build"
+    "build": "cd client/ && yarn install && yarn build",
+    
   },
   "repository": "https://github.com/cod3zilla/mern-redux-eshop.git",
   "author": "cod3zilla <paranoid.grunge@gmail.com>",
