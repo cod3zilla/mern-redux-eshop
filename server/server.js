@@ -21,7 +21,7 @@ app.use(express.json())
 app.use('/products',productsRoute)
 app.use('/users',authRoute)
 app.use('/order', orderRoute)
-app.get('/config/paypal', (req, res)=>{
+app.get('/config/paypal',cors(), (req, res)=>{
   res.send(process.env.PAYPAL_CLIENT_ID)
   
 })
