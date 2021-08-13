@@ -22,6 +22,8 @@ app.use('/products',productsRoute)
 app.use('/users',authRoute)
 app.use('/order', orderRoute)
 app.get('/config/paypal',cors(), (req, res)=>{
+resonse_object.header("Access-Control-Allow-Origin", "*");
+resonse_object.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   res.send(process.env.PAYPAL_CLIENT_ID)
   
 })
