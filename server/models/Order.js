@@ -1,9 +1,10 @@
 const mongoose=require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
-const OrderSchema= mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true,
+const OrderSchema= new mongoose.Schema({
+    user:{        
+        type:ObjectId,
+        required:true,        
         ref:'User'
     },
     orderItems:[
@@ -27,7 +28,7 @@ const OrderSchema= mongoose.Schema({
                 
             },
             product:{
-                type:mongoose.Schema.Types.ObjectId,
+                type:ObjectId,
                 required:true,
                 ref:'Product'
             }

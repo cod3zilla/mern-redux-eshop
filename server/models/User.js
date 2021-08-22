@@ -2,18 +2,18 @@ const mongoose=require('mongoose')
 const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
 
-const UserSchema= mongoose.Schema({
+const UserSchema= new mongoose.Schema({
             name:{
                 type:String,
-                require:true
+                required:true
             },
             email:{
                 type:String,
-                require:true
+                required:true
             },
             password:{
                 type:String,
-                require:true
+                required:true
             },
             isAdmin:{
                 type:Boolean,
@@ -26,16 +26,16 @@ UserSchema.pre('save',async function(next){
         next()
     }
     this.password=await bcrypt.hash(this.password,10)
-})
+});
 
 UserSchema.methods.comparePassword= async function(clientPassword){
     return await bcrypt.compare(clientPassword, this.password)
-}
+};
 
 UserSchema.methods.generateToken= function(id){
-    const token= jwt.sign({ id },process.env.JWT_KEY,{expiresIn:process.env.JWT_EXPIRY})
+    const token= jwt.sign({id},process.env.JWT_KEY,{expiresIn:process.env.JWT_EXPIRY})
     return token
-}
+};
 
 const User=mongoose.model('User',UserSchema)
 

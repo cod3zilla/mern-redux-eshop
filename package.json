@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
-    "server": "nodemon server/server.js"
+    "server": "nodemon server/server.js",
+    "data:import": "node server/seeder.js"
   },
   "repository": "https://github.com/cod3zilla/mern-redux-eshop.git",
   "author": "cod3zilla <paranoid.grunge@gmail.com>",
@@ -15,9 +16,11 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.6"
+    "mongoose": "^5.13.7"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "grunt-connect-proxy": "git+https://github.com/drewzboto/grunt-connect-proxy.git",
+    "nodemon": "^2.0.12"
   }
 }

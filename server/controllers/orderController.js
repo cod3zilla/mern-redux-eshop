@@ -1,9 +1,23 @@
+const mongoose=require('mongoose')
 const Order=require('../models/Order')
 
+exports.getMyOrders= async (req, res)=>{
+const valid = mongoose.Types.ObjectId.isValid(req.user._id)
+if(valid){
+    const orders=await Order.find({user:req.user._id})
+    .then(orders=>{
+        res.json(orders)
+    })    
+    .catch(err=>console.log(err))
+}else{
+    console.log('id is not valid object')
+}    
+}  
+
+    
 exports.addOrder=async (req, res)=>{
     const {
-        orderItems,
-        user, 
+        orderItems,        
         shippingAdress,
         paymentMethod,
         shippingPrice,
@@ -48,6 +62,7 @@ const order= await Order.findById(req.params.id).populate('user','name email')
 }
 
 exports.updateOrderToPaid= async(req, res)=>{
+    
     const order= await Order.findById(req.params.id)
     if(order){
         order.isPaid=true,
@@ -56,22 +71,16 @@ exports.updateOrderToPaid= async(req, res)=>{
             id:req.body.id,
             status:req.body.status,
             update_time:req.body.update_time,
-            email_adress:req.body.paymentResult.email_adress
+            payer:req.body.email_adress
         }
-        const updateOrder= await order.save(err,updateOrder=>{
-            if(updateOrder){
-                res.json(updateOrder)
-            }else{
-                console.log(err)
-            }
+        const updateOrder= await order.save()
+        .then(updateOrder=>{
+            res.json(updateOrder)
         })
+        .catch(err=>console.log(err))
         
     }else{
         res.status(404).json({message:'order not found!'})
     }
 }
 
-exports.getMyOrders= async (req, res)=>{
-    const orders= await Order.find({user:req.user._id})
-    res.json(orders)
-}

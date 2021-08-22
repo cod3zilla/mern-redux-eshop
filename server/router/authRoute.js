@@ -1,4 +1,5 @@
-const router=require('express').Router()
+const express=require('express')
+const router=express.Router()
 const {login,register,update, getUserProfile}=require('../controllers/authController')
 const {protectRoute}=require('../middlewares/authHandler')
 
