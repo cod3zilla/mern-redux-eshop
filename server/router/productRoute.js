@@ -1,8 +1,8 @@
 const express=require('express')
 const router=express.Router()
-const {allProducts,singleProduct}=require('../controllers/productController')
+const {allProducts,singleProduct,editProduct}=require('../controllers/productController')
 
 router.get('/',allProducts)
-router.get('/product/:id',singleProduct)
+router.route('/product/:id').get(singleProduct).put(editProduct)
 
 module.exports=router;
